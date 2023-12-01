@@ -8,24 +8,20 @@
   </head>
   <body>
     <div class="title-bar">
-      <h5>Rock, Paper, Scissors</h5>
+      <h2>Rock, Paper, Scissors</h2>
       <p>First to 15 is the Champion!!!</p>
     </div>
 
     <div class="score-counter">
-      <div class="player">
-        <div class="score">3</div>
-        <p>You</p>
-      </div>
-      <div class="computer">
-        <div class="score">7</div>
-        <p>computer</p>
-      </div>
+      <div class="score">3</div>
+      <div class="flex-right score-owner">You</div>
+      <div class="score-owner">computer</div>
+      <div class="score">7</div>
     </div>
 
     <div class="game-body">
       <h4>Rock, Paper or Scissors?</h4>
-      <div class="buttons">
+      <div id="buttons">
         <button>Rock</button>
         <button>Paper</button>
         <button>Scissors</button>
@@ -33,35 +29,35 @@
     </div>
 
     <div class="played">
-      <span>You played Scissors</span>
-      <span>Computer played Rock</span>
+      <div>You played Scissors</div>
+      <div>The Computer played Rock</div>
     </div>
-
     <div class="images"></div>
+    <h3 class="winner">Computer Wins!!!</h3>
 
-    <div class="winner">Computer Wins!!!</div>
-
-    <div class="track">
-      <h5>Your choice</h5>
-      <h5>Computer choice</h5>
-      <h5>Winner</h5>
-      <hr />
-      <span>Paper</span>
-      <span> scissors</span>
-      <span>You</span>
-      <hr />
-      <span>Paper</span>
-      <span> scissors</span>
-      <span>You</span>
-      <hr />
-      <span>Paper</span>
-      <span> scissors</span>
-      <span>You</span>
-      <hr />
-      <span>Paper</span>
-      <span> scissors</span>
-      <span>Computer</span>
-      <hr />
+    <div class="track-cover">
+      <div class="track">
+        <h5>Your choice</h5>
+        <h5>Computer choice</h5>
+        <h5>Winner</h5>
+        <hr />
+        <span>Paper</span>
+        <span> scissors</span>
+        <span>You</span>
+        <hr />
+        <span>Paper</span>
+        <span> scissors</span>
+        <span>You</span>
+        <hr />
+        <span>Paper</span>
+        <span> scissors</span>
+        <span>You</span>
+        <hr />
+        <span>Paper</span>
+        <span> scissors</span>
+        <span>Computer</span>
+        <hr />
+      </div>
     </div>
 
     <script src="game.js"></script>
