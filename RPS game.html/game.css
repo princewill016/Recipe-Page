@@ -57,7 +57,38 @@ button {
   font-weight: 600;
 }
 
+img {
+  width: 130px;
+  height: 130px;
+}
+
+.images {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.img1 {
+  rotate: 70deg;
+}
+.img2 {
+  rotate: -70deg;
+}
+
 .winner {
   text-align: center;
   color: green;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+table {
+  text-align: center;
+  width: 100%;
+}
+thead {
+  font-weight: 600;
+}
+td {
+  padding: 5px;
+  border: 1px solid black;
 }
