@@ -69,9 +69,15 @@ img {
 
 .img1 {
   rotate: 70deg;
+  display: none;
 }
 .img2 {
   rotate: -70deg;
+  display: none;
+}
+.img3 {
+  rotate: -70deg;
+  display: none;
 }
 
 .winner {
