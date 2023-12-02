@@ -4,54 +4,11 @@ const player_result = document.querySelector(".score_player");
 const computer_result = document.querySelector(".score_computer");
 const whoWon = document.querySelector(".winner");
 const tableBody = document.querySelector("#myTable tbody");
-
-function addFourTableColumns() {
-  const initialCellContent = {};
-  const tableBody = document.querySelector("#myTable tbody");
-  const newRow = document.createElement("tr");
-  for (let i = 0; i < 4; i++) {
-    const newCell = document.createElement("td");
-    newCell.textContent = `Cell ${i + 1}`;
-    switch (i) {
-      case 0:
-        newCell.classList.add("no_of_cells", "column_1_cells");
-        break;
-      case 1:
-        newCell.classList.add("player_cell");
-        break;
-      case 2:
-        newCell.classList.add("computer_cell");
-        break;
-      case 3:
-        newCell.classList.add("winner_cell");
-        break;
-      default:
-        break;
-    }
-    newRow.appendChild(newCell);
-  }
-  tableBody.appendChild(newRow);
-  const column1Cell = document.querySelector(".column_1_cells");
-  const playerCell = document.querySelector(".player_cell");
-  const computerCell = document.querySelector(".computer_cell");
-  const winnerCell = document.querySelector(".winner_cell");
-
-  if (column1Cell) {
-    column1Cell.textContent = initialCellContent.column1Cell = "Number";
-  }
-  if (playerCell) {
-    playerCell.textContent = " player content";
-    playerCell.textContent = initialCellContent.yourChoice = "your  choice";
-  }
-  if (computerCell) {
-    computerCell.textContent = " computer content";
-  }
-  if (winnerCell) {
-    winnerCell.textContent = "winnerCell";
-  }
-}
+let playCount = 1;
+isGameOver = false;
 
 function Rock() {
+  if (isGameOver) return;
   const playerChoice = "Rock";
   const choices = ["Rock", "Paper", "Scissors"];
   const computerChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -60,16 +17,36 @@ function Rock() {
   } else if (playerChoice === "Rock" && computerChoice === "Scissors") {
     result = "You Won!";
   } else result = "You Lose!";
-  player_played.textContent = `You chose ${"Rock"}`;
+  player_played.textContent = `You chose Rock`;
+  player_played.style.color = "#fb57c6";
+  if (computerChoice === "Rock") {
+    computer_played.style.color = "#fb57c6";
+  } else if (computerChoice === "Paper") {
+    computer_played.style.color = "#ffff75";
+  } else {
+    computer_played.style.color = "#40a4f7";
+  }
   computer_played.textContent = `Computer chose ${computerChoice}`;
   result === "You Won!" ? player_result.textContent++ : player_result;
   result === "You Lose!" ? computer_result.textContent++ : computer_result;
   whoWon.textContent = result;
+  if (whoWon.textContent === "You Won!") {
+    whoWon.style.color = "green";
+  } else if (whoWon.textContent === "You Lose!") {
+    whoWon.style.color = "Red";
+  } else {
+    whoWon.style.color = "white";
+  }
   addFourTableColumns();
+  if (player_result.textContent >= 16 || computer_result.textContent >= 16) {
+    endGame();
+  }
+  checkGameStatus();
   return result;
 }
 
 function Paper() {
+  if (isGameOver) return;
   const playerChoice = "Paper";
   const choices = ["Rock", "Paper", "Scissors"];
   const computerChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -78,16 +55,37 @@ function Paper() {
   } else if (playerChoice === "Paper" && computerChoice === "Scissors") {
     result = "You Lose!";
   } else result = "You Won!";
-  player_played.textContent = `You chose ${"Paper"}`;
+  player_played.textContent = `You chose Paper`;
+  player_played.style.color = "#ffff75";
+  if (computerChoice === "Rock") {
+    computer_played.style.color = "#fb57c6";
+  } else if (computerChoice === "Paper") {
+    computer_played.style.color = "#ffff75";
+  } else {
+    computer_played.style.color = "#40a4f7";
+  }
   computer_played.textContent = `Computer chose ${computerChoice}`;
   result === "You Won!" ? player_result.textContent++ : player_result;
   result === "You Lose!" ? computer_result.textContent++ : computer_result;
   whoWon.textContent = result;
+  if (whoWon.textContent === "You Won!") {
+    whoWon.style.color = "green";
+  } else if (whoWon.textContent === "You Lose!") {
+    whoWon.style.color = "Red";
+  } else {
+    whoWon.style.color = "white";
+  }
   addFourTableColumns();
+  if (player_result.textContent >= 16 || computer_result.textContent >= 16) {
+    endGame();
+  }
+
+  checkGameStatus();
   return result;
 }
 
 function Scissors() {
+  if (isGameOver) return;
   const playerChoice = "Scissors";
   const choices = ["Rock", "Paper", "Scissors"];
   const computerChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -97,10 +95,84 @@ function Scissors() {
     result = "You Lose!";
   } else result = "You Won!";
   player_played.textContent = `You chose Scissors`;
+  player_played.style.color = "#40a4f7";
+  if (computerChoice === "Rock") {
+    computer_played.style.color = "#fb57c6";
+  } else if (computerChoice === "Paper") {
+    computer_played.style.color = "#ffff75";
+  } else {
+    computer_played.style.color = "#40a4f7";
+  }
   computer_played.textContent = `Computer chose ${computerChoice}`;
   result === "You Won!" ? player_result.textContent++ : player_result;
   result === "You Lose!" ? computer_result.textContent++ : computer_result;
   whoWon.textContent = result;
+  if (whoWon.textContent === "You Won!") {
+    whoWon.style.color = "green";
+  } else if (whoWon.textContent === "You Lose!") {
+    whoWon.style.color = "Red";
+  } else {
+    whoWon.style.color = "white";
+  }
   addFourTableColumns();
-  return result, playerChoice;
+  if (player_result.textContent >= 16 || computer_result.textContent >= 16) {
+    endGame();
+  }
+
+  checkGameStatus();
+  return result;
+}
+
+function checkGameStatus() {
+  if (player_result.textContent >= 15 || computer_result.textContent >= 15) {
+    endGame();
+  }
+}
+
+function endGame() {
+  let message;
+  isGameOver = true;
+  if (player_result.textContent >= 16) {
+    message = "Game over! You Won AI";
+  } else {
+    message = "Game over! AI Won You";
+  }
+
+  const resetGame = window.confirm(`${message}\n\nDo you want to play again?`);
+  if (resetGame) {
+    // Reset the game (you may need to implement a reset function)
+    reset();
+  } else {
+    // End the game or continue as needed
+  }
+}
+const resetGame = window.confirm(
+  `${message}\n\nDo you want to reset the game?`
+);
+if (resetGame) {
+  // Reset the game (you may need to implement a reset function)
+  reset();
+} else {
+  // Continue the game
+  // You can add additional logic here if needed
+}
+
+// Function to reset the game (you need to implement this)
+function reset() {
+  window.location.reload();
+  // Add any additional reset logic you need
+}
+function addFourTableColumns() {
+  const newRow = tableBody.insertRow();
+  const cell1 = newRow.insertCell(0);
+  cell1.textContent = playCount++;
+  const cell2 = newRow.insertCell(1);
+  cell2.textContent = player_played.textContent;
+  const cell3 = newRow.insertCell(2);
+  cell3.textContent = computer_played.textContent.replace(
+    "Computer chose ",
+    ""
+  );
+  const cell4 = newRow.insertCell(3);
+  cell4.textContent = whoWon.textContent;
 }
