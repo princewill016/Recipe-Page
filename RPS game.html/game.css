@@ -3,17 +3,25 @@
   padding: 0;
   font-family: "Courier New", Courier, monospace;
 }
+body {
+  background-color: #292929;
+}
 
 .title-bar {
   padding: 20px;
-  text-align: center;
-  background-color: green;
-  color: black;
+  background-image: url(./images/RPS\ img.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 40vh;
+  z-index: 2;
 }
-
+.tit {
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
 .score-counter {
   display: flex;
-  background-color: grey;
   align-items: center;
   color: white;
   font-weight: 600;
@@ -28,10 +36,11 @@
 }
 .score {
   font-weight: 600;
-  background-color: #000000;
+  background-color: #111113;
   font-size: 50px;
-  border: 3px solid white;
+  border: 3px solid #111113;
   padding: 10px 30px;
+  border-radius: 4px;
 }
 
 .game-body {
@@ -47,6 +56,18 @@ button {
   border: none;
   margin-top: 15px;
   margin-bottom: 30px;
+}
+
+button.rock {
+  background-color: #fb57c6;
+}
+button.paper {
+  background-color: #ffff75;
+  color: black;
+}
+button.scissors {
+  background-color: #40a4f7;
+  color: black;
 }
 
 .played {

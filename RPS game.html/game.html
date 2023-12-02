@@ -8,8 +8,10 @@
   </head>
   <body>
     <div class="title-bar">
-      <h2>Rock, Paper, Scissors</h2>
-      <p>First to 15 is the Champion!!!</p>
+      <div class="tit">
+        <h2>Rock, Paper, Scissors</h2>
+        <p>First to 15 is the Champion!!!</p>
+      </div>
     </div>
 
     <div class="score-counter">
@@ -22,9 +24,9 @@
     <div class="game-body">
       <h4>Rock, Paper or Scissors?</h4>
       <div id="buttons">
-        <button onclick="Rock()">Rock</button>
-        <button onclick="Paper()">Paper</button>
-        <button onclick="Scissors()">Scissors</button>
+        <button class="rock" onclick="Rock()">Rock</button>
+        <button class="paper" onclick="Paper()">Paper</button>
+        <button class="scissors" onclick="Scissors()">Scissors</button>
       </div>
     </div>
 
@@ -44,44 +46,17 @@
     <h3 class="winner"></h3>
     <hr />
     <div class="track-cover">
-      <table>
+      <table id="myTable">
         <thead>
+          <td>No of plays</td>
           <td>Your Choice</td>
           <td>Computer choice</td>
-          <td>Wins</td>
+          <td>Winner</td>
         </thead>
 
         <tbody>
-          <tr>
-            <td>Rock</td>
-            <td>Paper</td>
-            <td>player</td>
-          </tr>
-          <tr>
-            <td>Rock</td>
-            <td>Paper</td>
-            <td>player</td>
-          </tr>
-          <tr>
-            <td>Rock</td>
-            <td>Paper</td>
-            <td>computer</td>
-          </tr>
-          <tr>
-            <td>Rock</td>
-            <td>Paper</td>
-            <td>player</td>
-          </tr>
-          <tr>
-            <td>Rock</td>
-            <td>Paper</td>
-            <td>player</td>
-          </tr>
-          <tr>
-            <td>Rock</td>
-            <td>Paper</td>
-            <td>player</td>
-          </tr>
+          <tr class="tr-count"></tr>
+          <tr></tr>
         </tbody>
       </table>
     </div>
