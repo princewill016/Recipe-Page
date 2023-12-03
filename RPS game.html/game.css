@@ -127,12 +127,12 @@ td {
 }
 @media only screen and (min-width: 400px) and (max-width: 600px) {
   .title-bar {
-    height: 30vh;
+    height: 45vh;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 900px) {
   .title-bar {
-    height: 50vh;
+    height: 60vh;
   }
   .tit {
     font-size: x-large;
@@ -164,9 +164,44 @@ td {
     font-size: x-large;
   }
 }
-@media only screen and (min-width: 901px) and (max-width: 1020px) {
+@media only screen and (min-width: 901px) and (max-width: 1000px) {
   .title-bar {
-    height: 50vh;
+    height: 75vh;
+  }
+  .tit {
+    font-size: 33px;
+  }
+  .score-counter {
+    font-size: 30px;
+  }
+
+  .score {
+    font-size: 55px;
+  }
+  h4 {
+    font-size: 35px;
+  }
+  button {
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  button.scissors {
+    margin-left: 45px;
+    margin-right: 45px;
+  }
+  .played,
+  .winner {
+    font-size: 32px;
+  }
+
+  table {
+    font-size: xx-large;
+  }
+}
+@media only screen and (min-width: 1001px) and (max-width: 1500px) {
+  .title-bar {
+    height: 100vh;
   }
   .tit {
     font-size: 33px;
