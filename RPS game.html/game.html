@@ -6,42 +6,33 @@
     <title>Lets Play!!!</title>
     <link rel="stylesheet" href="game.css" />
   </head>
-  <body>
-    <div class="title-bar">
+  <body class="body">
+    <header class="title-bar">
       <div class="tit">
-        <h2>Rock, Paper, Scissors</h2>
+        <h2>Rock, Scissors, Paper</h2>
         <p>First to 15 is the Champion!!!</p>
       </div>
-    </div>
+    </header>
 
     <div class="score-counter">
       <div class="score score_player">0</div>
-      <div class="flex-right score-owner">You</div>
-      <div class="score-owner">computer</div>
+      <h3 class="flex-right score-owner">You</h3>
+      <h3 class="score-owner">computer</h3>
       <div class="score score_computer">0</div>
     </div>
 
     <div class="game-body">
-      <h4>Rock, Paper or Scissors?</h4>
+      <h4>Rock, Scissors or Paper?</h4>
       <div id="buttons">
         <button class="rock" onclick="Rock()">Rock</button>
-        <button class="paper" onclick="Paper()">Paper</button>
         <button class="scissors" onclick="Scissors()">Scissors</button>
+        <button class="paper" onclick="Paper()">Paper</button>
       </div>
     </div>
 
     <div class="played">
       <div id="player_played">You Choose?</div>
       <div id="computer_played">Computer Choose...</div>
-    </div>
-    <div class="images">
-      <div class="img1"><img src="./images/rock emoji.jpeg" alt="rock" /></div>
-      <div class="img2">
-        <img src="./images/paper emoji.jpeg" alt="paper" />
-      </div>
-      <div class="img3">
-        <img src="./images/scissors emoji.jpeg" alt="scissors" />
-      </div>
     </div>
     <h2 class="winner"></h2>
     <div class="track-cover">

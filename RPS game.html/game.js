@@ -22,9 +22,9 @@ function Rock() {
   if (computerChoice === "Rock") {
     computer_played.style.color = "#fb57c6";
   } else if (computerChoice === "Paper") {
-    computer_played.style.color = "#ffff75";
-  } else {
     computer_played.style.color = "#40a4f7";
+  } else {
+    computer_played.style.color = "#ffff75";
   }
   computer_played.textContent = `Computer chose ${computerChoice}`;
   result === "You Won!" ? player_result.textContent++ : player_result;
@@ -38,10 +38,10 @@ function Rock() {
     whoWon.style.color = "white";
   }
   addFourTableColumns();
-  if (player_result.textContent >= 16 || computer_result.textContent >= 16) {
-    endGame();
+  if (player_result.textContent >= 15 || computer_result.textContent >= 15) {
+    checkGameStatus();
+    // endGame();
   }
-  checkGameStatus();
   return result;
 }
 
@@ -56,13 +56,13 @@ function Paper() {
     result = "You Lose!";
   } else result = "You Won!";
   player_played.textContent = `You chose Paper`;
-  player_played.style.color = "#ffff75";
+  player_played.style.color = "#40a4f7";
   if (computerChoice === "Rock") {
     computer_played.style.color = "#fb57c6";
   } else if (computerChoice === "Paper") {
-    computer_played.style.color = "#ffff75";
-  } else {
     computer_played.style.color = "#40a4f7";
+  } else {
+    computer_played.style.color = "#ffff75";
   }
   computer_played.textContent = `Computer chose ${computerChoice}`;
   result === "You Won!" ? player_result.textContent++ : player_result;
@@ -76,11 +76,10 @@ function Paper() {
     whoWon.style.color = "white";
   }
   addFourTableColumns();
-  if (player_result.textContent >= 16 || computer_result.textContent >= 16) {
-    endGame();
+  if (player_result.textContent >= 15 || computer_result.textContent >= 15) {
+    checkGameStatus();
+    // endGame();
   }
-
-  checkGameStatus();
   return result;
 }
 
@@ -95,13 +94,13 @@ function Scissors() {
     result = "You Lose!";
   } else result = "You Won!";
   player_played.textContent = `You chose Scissors`;
-  player_played.style.color = "#40a4f7";
+  player_played.style.color = "#ffff75";
   if (computerChoice === "Rock") {
     computer_played.style.color = "#fb57c6";
   } else if (computerChoice === "Paper") {
-    computer_played.style.color = "#ffff75";
-  } else {
     computer_played.style.color = "#40a4f7";
+  } else {
+    computer_played.style.color = "#ffff75";
   }
   computer_played.textContent = `Computer chose ${computerChoice}`;
   result === "You Won!" ? player_result.textContent++ : player_result;
@@ -115,11 +114,10 @@ function Scissors() {
     whoWon.style.color = "white";
   }
   addFourTableColumns();
-  if (player_result.textContent >= 16 || computer_result.textContent >= 16) {
-    endGame();
+  if (player_result.textContent >= 15 || computer_result.textContent >= 15) {
+    checkGameStatus();
+    // endGame();
   }
-
-  checkGameStatus();
   return result;
 }
 
@@ -132,12 +130,11 @@ function checkGameStatus() {
 function endGame() {
   let message;
   isGameOver = true;
-  if (player_result.textContent >= 16) {
-    message = "Game over! You Won AI";
+  if (player_result.textContent >= 15) {
+    message = "Game over! You Won AI!";
   } else {
-    message = "Game over! AI Won You";
+    message = "Game over! AI Won You!";
   }
-
   const resetGame = window.confirm(`${message}\n\nDo you want to play again?`);
   if (resetGame) {
     // Reset the game (you may need to implement a reset function)
@@ -145,16 +142,6 @@ function endGame() {
   } else {
     // End the game or continue as needed
   }
-}
-const resetGame = window.confirm(
-  `${message}\n\nDo you want to reset the game?`
-);
-if (resetGame) {
-  // Reset the game (you may need to implement a reset function)
-  reset();
-} else {
-  // Continue the game
-  // You can add additional logic here if needed
 }
 
 // Function to reset the game (you need to implement this)
